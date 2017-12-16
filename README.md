@@ -46,9 +46,9 @@ dim(all)
 ids <- queryDB(type = "getIDs", version="5.0.10") # get all the drugbank ids
 ids[1:4]
 
-queryDB(ids = c("DB00001","DB00002"),type = "whichFDA", version="5.0.10") 
 # given drugbank ids, determine whether they are FDA approved
+queryDB(ids = c("DB00001","DB00002"),type = "whichFDA", version="5.0.10") 
 
+# given drugbank ids, get their targets
 queryDB(ids = c("DB00001","DB00002"),type = "getTargets", version="5.0.10") 
-# given drugbank ids, get their targets ids (DrugBank and UniProt)
 ```
