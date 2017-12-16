@@ -23,7 +23,7 @@ devtools::install_github("yduan004/drugbankR")
 library(drugbankR)
 ```
 
-# Generate your own drugbank SQLite database from specific version of drugbank full database (xml file) downloaded from [here](http://www.drugbank.ca/releases/latest)
+## Generate your own drugbank SQLite database from specific version of drugbank full database (xml file) downloaded from [here](http://www.drugbank.ca/releases/latest)
 
 ```r
 ## download the original drugbank database (http://www.drugbank.ca/releases/latest) (xml file) into your current directory and rename as drugbank.xml 
@@ -38,7 +38,7 @@ df2SQLite(dbdf=drugbank_dataframe, version)
 system.file("extdata", package="drugbankR")
 ```
 
-# Query specific version of drugbank SQLite database
+## Query specific version of drugbank SQLite database
 
 ```r
 all <- queryDB(type = "getAll", version="5.0.10") # get the entire drugbank dataframe
