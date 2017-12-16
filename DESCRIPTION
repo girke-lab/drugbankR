@@ -1,0 +1,16 @@
+Package: drugbankR
+Type: Package
+Title: R package for querying drugbank database
+Version: 1.4
+Date: 2017-09-28
+Author: Yuzhu Duan
+Maintainer: Yuzhu Duan <yduan004@ucr.edu>
+Description: The drugbankR is a bioinformatics package for querying DrugBank database in R.  
+Imports: RSQLite, XML, org.Hs.eg.db, dplyr, AnnotationDbi
+Suggests: RUnit,BiocStyle,knitr,rmarkdown
+VignetteBuilder: knitr
+License: Artistic-2.0
+URL: https://github.com/yduan004/drugbankR
+RoxygenNote: 6.0.1
+NeedsCompilation: no
+Packaged: 2017-12-16 00:41:38 UTC; yduan

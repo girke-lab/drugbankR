@@ -1,0 +1,3 @@
+## The following redefinitions are only for printing the verbatim header below
+doc_date = function() "`r doc_date()`"
+pkg_ver = function(name) sprintf("`r pkg_ver('%s')`", name)
