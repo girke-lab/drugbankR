@@ -9,9 +9,7 @@ This package can be used to query the newest version (*e.g.* 5.1.3) of DrugBank 
 
 * Get targets of the query drugs.
 
-# Getting Started
-
-## Installation and load
+# Installation and load
 
 The _`drugbankR`_ package can be directly installed from github
 
@@ -36,24 +34,22 @@ need to creat a DrugBank account and log in to access the data.
 drugbank_dataframe <- dbxml2df(xmlfile="drugbank.xml", version="5.1.3") 
 ```
 
-# store drugbank dataframe in SQLite database, the created SQLite database (drugbank_version.db) is under "extdata" directory of "drugbankR" package.
-df2SQLite(dbdf=drugbank_dataframe, version)
-
-# You can see the path of "drugbank_version.db" by running
-system.file("extdata", package="drugbankR")
+The `df2SQLite` function stores the drugbank dataframe into a SQLite database. The created SQLite database (drugbank_versionNumber.db) is under your present working direcotry of R, you could check your current R working directory by running `getwd()` in R.
+```r
+df2SQLite(dbdf=drugbank_dataframe, version="5.1.3")
 ```
 
-## Query specific version of drugbank SQLite database
+# Query the DrugBank SQLite database generated above
 
 ```r
-all <- queryDB(type = "getAll", version="5.0.10") # get the entire drugbank dataframe
+all <- queryDB(type = "getAll", db_path="drugbank_5.1.3.db") # get the entire drugbank dataframe
 dim(all)
-ids <- queryDB(type = "getIDs", version="5.0.10") # get all the drugbank ids
+ids <- queryDB(type = "getIDs", db_path="drugbank_5.1.3.db") # get all the drugbank ids
 ids[1:4]
 
 # given drugbank ids, determine whether they are FDA approved
-queryDB(ids = c("DB00001","DB00002"),type = "whichFDA", version="5.0.10") 
+queryDB(ids = c("DB00001","DB00002"),type = "whichFDA", db_path="drugbank_5.1.3.db") 
 
 # given drugbank ids, get their targets
-queryDB(ids = c("DB00001","DB00002"),type = "getTargets", version="5.0.10") 
+queryDB(ids = c("DB00001","DB00002"),type = "getTargets", db_path="drugbank_5.1.3.db") 
 ```
