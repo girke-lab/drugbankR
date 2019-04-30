@@ -4,7 +4,6 @@
 \name{drugbankR}
 \alias{drugbankR}
 \alias{drugbankR-package}
-\alias{drugbankR-package}
 \title{R package for querying drugbank database}
 \description{
 The drugbankR package is used for querying drugbank database in R.

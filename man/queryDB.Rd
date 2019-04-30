@@ -2,33 +2,36 @@
 % Please edit documentation in R/queries.R
 \name{queryDB}
 \alias{queryDB}
-\title{Query drugbank SQLite database.}
+\title{Query DrugBank SQLite database.}
 \usage{
-queryDB(ids = NULL, type, version = "5.0.10")
+queryDB(ids = NULL, type, db_path)
 }
 \arguments{
-\item{ids}{A character vector, represent DrugBank IDs.}
+\item{ids}{character vector, represents DrugBank IDs.}
 
-\item{type}{Type can only be assigned to "getAll","getIDs","whichFDA","getTargets" 
+\item{type}{one of "getAll","getIDs","whichFDA","getTargets" 
+\itemize{
+  \item getAll: get the entire drugbank dataframe, argument \code{ids} is ignored
 
-getAll: get the entire drugbank dataframe, argument \code{ids} is ignored
+  \item getIDs: get all the drugbank ids, argument \code{ids} is ignored
 
-getIDs: get all the drugbank ids, argument \code{ids} is ignored
+  \item whichFDA: given drugbank ids, determine whether they are FDA approved
 
-whichFDA: given drugbank ids, determine whether they are FDA approved
+  \item getTargets: given drugbank ids, get their targets ids (DrugBank_id, UniProt_id, symbol...).
+}}
 
-getTargets: given drugbank ids, get their targets ids (DrugBank_id, UniProt_id, symbol...).}
-
-\item{version}{Character, version of the requested drugbank database}
+\item{db_path}{Character(1), path to the DrugBank SQLite database generated
+from \code{\link{dbxml2df}} and \code{\link{df2SQLite}} function}
 }
 \value{
 \code{getAll}: drugbank dataframe
 
-\code{getIDs}: vector of all the drugbank ids
+\code{getIDs}: character vector of all the drugbank ids
 
 \code{whichFDA}: logical vector
 
-\code{getTargets}: dataframe containing targets' DrugBank_id, UniProt_id, UniProt_name and gene_symbol
+\code{getTargets}: data.frame containing DrugBank_id, UniProt_id, UniProt_name 
+and gene_symbol of the targets of the query drugs
 }
 \description{
 This function can be used to
