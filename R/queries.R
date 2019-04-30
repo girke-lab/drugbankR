@@ -70,7 +70,7 @@ getTargets <- function(ids, version="5.0.10"){
 		tar_df[i,"t_db_id"] <- DrugBank_id
 	}
 	
-	# add gn_sym colomn for drug_target_uniprot data_frame
+	# add gn_sym column for drug_target_uniprot data_frame
 	k <- keys(org.Hs.eg.db, keytype = "UNIPROT")
 	uni_gnsym <- suppressMessages(AnnotationDbi::select(org.Hs.eg.db, keys=k, columns=c("UNIPROT", "SYMBOL"), keytype="UNIPROT"))
 	drug_target_uniprot <- dplyr::as_tibble(drug_target_uniprot)
