@@ -42,14 +42,17 @@ df2SQLite(dbdf=drugbank_dataframe, version="5.1.3")
 # Query the DrugBank SQLite database generated above
 
 ```r
-all <- queryDB(type = "getAll", db_path="drugbank_5.1.3.db") # get the entire drugbank dataframe
+# get the entire drugbank data.frame
+all <- queryDB(type = "getAll", db_path="drugbank_5.1.3.db") 
 dim(all)
-ids <- queryDB(type = "getIDs", db_path="drugbank_5.1.3.db") # get all the drugbank ids
+
+# retrieve all the valid drugbank ids
+ids <- queryDB(type = "getIDs", db_path="drugbank_5.1.3.db") 
 ids[1:4]
 
 # given drugbank ids, determine whether they are FDA approved
 queryDB(ids = c("DB00001","DB00002"),type = "whichFDA", db_path="drugbank_5.1.3.db") 
 
-# given drugbank ids, get their targets
+# given drugbank ids, get their target gene/protein IDs 
 queryDB(ids = c("DB00001","DB00002"),type = "getTargets", db_path="drugbank_5.1.3.db") 
 ```
